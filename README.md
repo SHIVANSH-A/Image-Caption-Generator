@@ -27,10 +27,8 @@ A **Gradio UI inside the Jupyter Notebook** allows users to upload images and ge
 
 ---
 
-# 🚀 Setup & Run Instructions (Step-by-Step)
-
-## 1️⃣ Clone the Repository
-```bash
+🚀 Setup & Run Instructions (Step-by-Step)
+1️⃣ Clone the Repository
 git clone https://github.com/your-username/image-caption-generator.git
 cd image-caption-generator
 
@@ -49,33 +47,30 @@ pip install -r Code/requirements.txt
 4️⃣ Download Required Models / Datasets
 ✔ Pretrained Model
 
-Automatically downloaded by the Hugging Face pipeline when running the notebook.
+Downloaded automatically by HuggingFace when running the notebook.
 
-✔ Flickr8k Trained Model
+✔ Flickr8k Trained Model (Custom Transformer)
 
 Place your trained model folder here:
 
 /flickr8k-finetuned-model-final-20251115T0623/
 
 
-Contents include:
+Folder must include:
 
 encoder.pth
-
 decoder.pth
-
 tokenizer.pkl
-
 config.json
-
-other weights or metadata
+(other weights or metadata)
 
 ✔ Dataset (Only if retraining)
 
-Flickr8k Dataset:
-Images: https://www.kaggle.com/datasets/adityajn105/flickr8k
+Flickr8k Images:
+https://www.kaggle.com/datasets/adityajn105/flickr8k
 
-Captions: https://www.kaggle.com/datasets/adityajn105/flickr8k
+Flickr8k Captions:
+https://www.kaggle.com/datasets/adityajn105/flickr8k
 
 Dataset Size:
 
@@ -83,37 +78,33 @@ Images: ~1 GB
 
 Captions: ~20 KB
 
-Preprocessing Applied:
+Preprocessing Steps Applied:
 
 Tokenization
 
 Vocabulary building
 
-Removing rare words
+Removing rare/low-frequency words
 
-Resizing images
+Uniform image resizing
 
 Train/validation split
 
 5️⃣ Running the Project (Notebook + Gradio UI)
-
 Open Jupyter Notebook:
-
 jupyter notebook
 
-
-Run:
-
+Run the UI notebook:
 Code/image_caption_ui.ipynb
 
 
-A Gradio UI will launch inside the notebook:
+This will launch a Gradio interface inside the notebook:
 
 Upload an image
 
 Generate captions with both models
 
-Compare results in one interface
+Compare outputs side-by-side
 
 📁 Repository Structure
 📦 image-caption-generator
@@ -122,9 +113,9 @@ Compare results in one interface
 │   ├── Model_train.ipynb
 │   ├── Model1_Transformer_Pipeline.ipynb
 │   ├── Model2_image_captioning_Main.ipynb
-│   ├── 
+│   └── image_caption_ui.ipynb
 │
-├── 📁 flickr8k-finetuned-model-final-20251115T0623/
+├── 📁 flickr8k-finetuned-model-final-20251115T0623
 │   ├── encoder.pth
 │   ├── decoder.pth
 │   ├── tokenizer.pkl
@@ -136,17 +127,18 @@ Compare results in one interface
 └── README.md
 
 🖼️ Example Input & Output
+
 Input:
+Example: Dog running on grass
 
-(Example: photo of a dog running on grass)
+Output Captions:
 
-Output Captions
 Model	Generated Caption
 Pretrained Model	"A dog is running across a grassy field."
-Transformer (Custom)	"A brown dog runs playfully over green grass."
+Custom Transformer	"A brown dog runs playfully over green grass."
 📊 Evaluation
 
-evaluation_results.csv includes metrics:
+evaluation_results.csv includes:
 
 BLEU-1, BLEU-2, BLEU-3, BLEU-4
 
@@ -156,7 +148,7 @@ METEOR
 
 CIDEr
 
-These metrics compare both captioning methods.
+These metrics compare Pretrained vs Custom Transformer models.
 
 🧰 Technologies Used
 Languages
@@ -189,6 +181,6 @@ Tools
 
 Jupyter Notebook
 
-CUDA/GPU (for training)
+CUDA/GPU (optional for training)
 
 Kaggle (dataset source)
